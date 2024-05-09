@@ -32,5 +32,11 @@ jobs:
       - name: Build site
         run: npm run build-prod
 
+      - name: Get latest vercel config
+        run: npx vercel pull --token ${{ secrets.VECELKEY }}
+
+      - name: Build a vercel project
+        run: npx vercel build --token ${{ secrets.VECELKEY }}
+
       - name: Deploy App
-        run: npx vercel --cwd ./dist deploy --prebuilt --token ${{ secrets.VECELKEY }}
+        run: npx vercel --prebuilt --token ${{ secrets.VECELKEY }}
