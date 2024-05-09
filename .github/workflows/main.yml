@@ -30,7 +30,7 @@ jobs:
         run: npm ci
         
       - name: Build site
-        run: npm run build-prod
+        run: npm run build
 
       - name: Get latest vercel config
         run: npx vercel pull --token ${{ secrets.VECELKEY }}
