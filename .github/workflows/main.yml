@@ -33,4 +33,4 @@ jobs:
         run: npm run build-prod
 
       - name: Deploy App
-        run: npx vercel deploy --cwd ./dist --prebuilt --token ${{ secrets.VECELKEY }}
+        run: npx vercel --cwd ./dist deploy --prebuilt --token ${{ secrets.VECELKEY }}
