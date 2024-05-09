@@ -7,6 +7,10 @@ on:
     - main
     - release/*
 
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 jobs:
   build_website_files:
     name: Build Files
@@ -29,4 +33,4 @@ jobs:
         run: npm run build-prod
 
       - name: Deploy App
-        run: npx vercel deploy --cwd ./dist --prebuilt --name test-project --token ${{ secrets.VECELKEY }}
+        run: npx vercel deploy --cwd ./dist --prebuilt --token ${{ secrets.VECELKEY }}
